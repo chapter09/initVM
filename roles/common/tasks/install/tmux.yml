@@ -4,6 +4,7 @@
 
 - name: Add latest tmux repo
   apt_repository: repo='ppa:pi-rho/dev'
+  become: yes 
   
 - name: Install tmux
   apt: name=tmux state=latest

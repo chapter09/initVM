@@ -38,3 +38,6 @@
 
 - name: Install vim
   include: './install/vim.yml'
+
+- name: Install python
+  include: './install/python.yml'
