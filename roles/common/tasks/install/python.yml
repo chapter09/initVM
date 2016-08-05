@@ -1,0 +1,10 @@
+# vim:ft=ansible:
+---
+# This Playbook install the latest tmux
+
+- name: Install python kits
+  apt: name={{ item }} state=latest
+  with_items:
+    - python-pip
+    - python-dev
+  become: yes 

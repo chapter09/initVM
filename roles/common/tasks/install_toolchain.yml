@@ -2,30 +2,11 @@
 ---
 # This Playbook will install all basic tools on all machines
 
-- name: Init locale for new instance
-  apt: name=language-pack-en
-  become: yes
-
-- name: Update apt repo
-  apt: update_cache=yes
-  become: yes
-
-- name: Install htop
-  apt: name=htop
-  become: yes
-  
-- name: Install git
-  apt: name=git
-  become: yes
-
-- name: Create the Downloads directory for all machines
-  file: path=/home/ubuntu/Downloads state=directory mode=0755 owner=ubuntu
+- name: Install redis
+  include: './install/basics.yml'
 
 - name: Git clone dotfiles 
   include: './install/dotfiles.yml'
-
-- name: Install redis
-  include: './install/redis.yml'
 
 - name: Install Java 8 
   include: './install/java.yml'
