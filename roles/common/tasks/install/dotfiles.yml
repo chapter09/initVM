@@ -3,6 +3,6 @@
 # This Playbook install the latest tmux
 
 - name: Git clone dotfiles
-  git: repo=git@github.com:chapter09/dot-files.git dest=/home/ubuntu/dotfiles
+  git: repo=https://github.com/chapter09/dot-files.git dest=/home/{{ user }}/dotfiles
        accept_hostkey=yes
   
