@@ -6,4 +6,5 @@ Ansible playbooks for VMs initialization
 Go to the [release tab](https://github.com/chapter09/initVM/releases), download the package and uncompress.
 
 1. Run `init.sh`
-2. Run `ansible-playbook site.yml`
+2. Rename `host.template` to `host`
+3. Run `ansible-playbook site.yml`
