@@ -6,9 +6,9 @@
   lineinfile: dest=/etc/ssh/ssh_config line='    StrictHostKeyChecking no\n    UserKnownHostsFile=/dev/null'
   become: yes
 
-- name: Generate key
-  shell: ssh-keygen -f /home/{{ user }}/.ssh/id_rsa_local -t rsa -N ''
-  ignore_errors: yes
+#- name: Generate key
+#  shell: ssh-keygen -f /home/{{ user }}/.ssh/id_rsa_local -t rsa -N ''
+#  ignore_errors: yes
 
 - name: Add key
-  authorized_key: user={{ user }} key='/home/{{ user }}/.ssh/id_rsa_local.pub'
+  authorized_key: user={{ user }} key={{ pub_keys }}

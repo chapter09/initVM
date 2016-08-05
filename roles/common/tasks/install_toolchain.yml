@@ -2,7 +2,7 @@
 ---
 # This Playbook will install all basic tools on all machines
 
-- name: Install redis
+- name: Install basic toolkits
   include: './install/basics.yml'
 
 - name: Git clone dotfiles 

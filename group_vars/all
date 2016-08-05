@@ -2,3 +2,4 @@
 ---
 
 user: ubuntu 
+pub_keys: https://github.com/chapter09.keys

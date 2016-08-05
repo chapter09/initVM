@@ -14,7 +14,7 @@
   apt: name=htop
   become: yes
 
-- name: Install htop
+- name: Install ctags
   apt: name=exuberant-ctags
   become: yes
   
