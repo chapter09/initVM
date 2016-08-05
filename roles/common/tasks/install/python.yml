@@ -3,7 +3,7 @@
 # This Playbook install the latest tmux
 
 - name: Install python kits
-  apt: name={{ item }} state=latest
+  apt: name={{ item }} state=latest update_cache=yes
   with_items:
     - python-pip
     - python-dev
