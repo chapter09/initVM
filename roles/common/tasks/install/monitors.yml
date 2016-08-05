@@ -1,0 +1,53 @@
+# vim:ft=ansible:
+---
+# This Playbook will install performance monitors
+
+- name: Install iostate
+  apt: name=sysstat state=latest
+  become: yes
+
+- name: Create a directory for JvmTop
+  file: path=/home/ubuntu/jvmtop state=directory mode=0755 owner=ubuntu
+
+- name: Download JvmTop
+  get_url: url=https://github.com/patric-r/jvmtop/releases/download/0.8.0/jvmtop-0.8.0.tar.gz 
+           dest=/home/ubuntu/Downloads
+
+- name: Extract JvmTop
+  unarchive: copy=no 
+             src=/home/ubuntu/Downloads/jvmtop-0.8.0.tar.gz 
+             dest=/home/ubuntu/jvmtop/
+
+- name: Make JvmTop executable
+  file: path=/home/ubuntu/jvmtop/jvmtop.sh mode=0755
+
+- name: Install dependencies for nethogs
+  apt: name={{ item }}
+  with_items:
+    - build-essential
+    - libncurses5-dev
+    - libpcap-dev
+  become: yes
+
+- name: Git clone nethogs source code
+  git: repo=https://github.com/raboof/nethogs dest=/home/ubuntu/Downloads/nethogs
+
+- name: Compile nethogs
+  make: chdir=/home/ubuntu/Downloads/nethogs target=install
+  become: yes
+
+- name: Download iftop
+  get_url: url=http://www.ex-parrot.com/pdw/iftop/download/iftop-1.0pre4.tar.gz
+           dest=/home/ubuntu/Downloads
+
+- name: Extract iftop
+  unarchive: copy=no 
+             src=/home/ubuntu/Downloads/iftop-1.0pre4.tar.gz 
+             dest=/home/ubuntu/Downloads/
+
+- name: Configure iftop
+  command: ./configure chdir=/home/ubuntu/Downloads/iftop-1.0pre4 
+
+- name: Build iftop
+  make: chdir=/home/ubuntu/Downloads/iftop-1.0pre4 target=install
+  become: yes

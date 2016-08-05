@@ -1,0 +1,13 @@
+# vim:ft=ansible:
+---
+# This Playbook runs all the common plays in the deployment
+
+- name: Install toolchain
+  include: install_toolchain.yml
+  
+- name: SSH configuration
+  include: ssh_config.yml
+
+- name: Setup env variables
+  include: setup_env.yml
+
