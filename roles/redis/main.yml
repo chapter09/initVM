@@ -1,0 +1,11 @@
+# vim:ft=ansible:
+---
+# This Playbook will install redis 
+
+- name: Install redis-server
+  apt: name=redis-server
+  become: yes
+
+- name: Install redis-tools
+  apt: name=redis-tools
+  become: yes

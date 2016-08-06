@@ -1,0 +1,11 @@
+# vim:ft=ansible:
+---
+# This Playbook will install redis 
+
+#- name: Setup TF env
+#  environment:
+#    TF_BINARY_URL: https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-0.10.0rc0-cp27-none-linux_x86_64.whl
+
+- name: Install TF from pip
+  pip: name=https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-0.10.0rc0-cp27-none-linux_x86_64.whl state=latest
+  become: yes
