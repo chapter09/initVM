@@ -11,6 +11,13 @@
     - ipywidgets
     - ipyparallel 
 
+- name: Update matplotlib fontList cache
+  file: src=/home/{{ user }}/.cache/matplotlib/fontList.cache 
+        state=absent
+
+- name: Config jupyter server
+  template: src=matplotlibrc.j2 dest=/home/{{ user }}/.config/matplotlib/matplotlibrc
+
 - name: Config jupyter server
   template: src=jupyter_notebook_config.j2 dest=/home/{{ user }}/.jupyter/jupyter_notebook_config.py
 

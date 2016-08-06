@@ -13,12 +13,24 @@
     - python-pil
     - python-scikits-learn
     - python-scikits.statsmodels
+    - libpng-dev 
+    - libjpeg8-dev 
+    - libfreetype6-dev 
+    - python-dev 
+    - libsys-cpu-perl 
+    - pcf2bdf 
+    - tex-gyre 
+    - ttf-bitstream-vera 
+    - tv-fonts 
+    - xfonts-traditional
+    - pkg-config
 
 - name: Install dependencies by pip
   pip: name={{ item }} state=present
   become: yes
   with_items:
     - scikit-learn
+    - matplotlib
     - sympy
     - seaborn
     - patsy
