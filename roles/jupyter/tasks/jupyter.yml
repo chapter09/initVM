@@ -11,4 +11,6 @@
     - ipywidgets
     - ipyparallel 
 
-- name:
+- name: Config jupyter server
+  template: src=jupyter_notebook_config.j2 dest=/home/{{ user }}/.jupyter/jupyter_notebook_config.py
+

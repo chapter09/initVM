@@ -87,3 +87,7 @@ ENV/
 
 # Rope project settings
 .ropeproject
+
+# Project sensitive file
+group_vars/all
+hosts

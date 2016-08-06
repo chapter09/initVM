@@ -20,7 +20,6 @@
   with_items:
     - scikit-learn
     - sympy
-    - scikit-image
     - seaborn
     - patsy
     - statsmodels
