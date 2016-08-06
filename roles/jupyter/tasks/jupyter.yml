@@ -15,7 +15,7 @@
   file: src=/home/{{ user }}/.cache/matplotlib/fontList.cache 
         state=absent
 
-- name: Config jupyter server
+- name: Config matplotlib
   template: src=matplotlibrc.j2 dest=/home/{{ user }}/.config/matplotlib/matplotlibrc
 
 - name: Config jupyter server
