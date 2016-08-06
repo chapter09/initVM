@@ -1,0 +1,32 @@
+# vim:ft=ansible:
+---
+# This Playbook will install redis 
+
+- name: Install python data science dependencies
+  apt: name={{ item }}
+  become: yes
+  with_items:
+    - python-numpy
+    - python-scipy
+    - python-matplotlib
+    - python-pandas
+    - python-pil
+    - python-scikits-learn
+    - python-scikits.statsmodels
+
+- name: Install dependencies by pip
+  pip: name={{ item }} state=present
+  become: yes
+  with_items:
+    - scikit-learn
+    - sympy
+    - scikit-image
+    - seaborn
+    - patsy
+    - statsmodels
+    - networkx
+    - ipythonblocks
+    - plotly
+    - dask
+    - blaze
+    - odo

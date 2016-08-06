@@ -1,0 +1,14 @@
+# vim:ft=ansible:
+---
+# This Playbook will install redis 
+
+- name: Install jupyter by pip
+  pip: name={{ item }} state=present
+  become: yes
+  with_items:
+    - jupyter
+    - notebook
+    - ipywidgets
+    - ipyparallel 
+
+- name:

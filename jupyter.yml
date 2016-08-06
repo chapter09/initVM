@@ -1,0 +1,9 @@
+# vim:ft=ansible:
+---
+# This Playbook will deploy the whole Spark + Hive + HDFF on the cluster
+
+- hosts: all
+  remote_user: ubuntu 
+  roles:
+    - role: jupyter
+

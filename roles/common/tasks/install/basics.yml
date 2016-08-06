@@ -2,25 +2,28 @@
 ---
 # This Playbook will install all basic tools on all machines
 
-- name: Init locale for new instance
-  apt: name=language-pack-en update_cache=yes
+- name: update the apt index
+  apt: update_cache=yes cache_valid_time=3600
   become: yes
 
-- name: Update apt repo
-  apt: update_cache=yes
+- name: Upgrade all packages
+  apt: upgrade=safe
   become: yes
 
-- name: Install htop
-  apt: name=htop
-  become: yes
+- name: build-essential
+  apt: pkg=build-essential state=present update_cache=yes cache_valid_time=3600
+  become: true
 
-- name: Install ctags
-  apt: name=exuberant-ctags
+- name: Install basic tools
+  apt: name={{ item }} update_cache=yes
   become: yes
-  
-- name: Install git
-  apt: name=git
-  become: yes
+  with_items:
+    - language-pack-en
+    - htop
+    - exuberant-ctags
+    - git
+    - tree
+    - vim
 
 - name: Create the Downloads directory for all machines
   file: path=/home/ubuntu/Downloads state=directory mode=0755 owner=ubuntu

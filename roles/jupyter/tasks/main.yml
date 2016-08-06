@@ -1,0 +1,6 @@
+# vim:ft=ansible:
+---
+# This Playbook will install jupyter notebook
+
+- include: requirements.yml
+- include: jupyter.yml
