@@ -6,4 +6,5 @@
   remote_user: ubuntu 
   roles:
     - role: common
+    - role: doctoc
 

@@ -1,0 +1,15 @@
+# vim:ft=ansible:
+---
+# This Playbook will install doctoc
+
+- name: Install Nodejs
+  apt: name={{ item }} state=present update_cache=yes
+  become: yes
+  with_items:
+    - nodejs
+    - nodejs-legacy
+    - npm
+
+- name: Install doctoc from npm
+  npm: name=doctoc global=yes
+  become: yes

@@ -1,0 +1,9 @@
+# vim:ft=ansible:
+---
+# This Playbook will install doctoc, a tool generate markdown TOC 
+
+- hosts: all
+  remote_user: ubuntu 
+  roles:
+    - role: doctoc
+
