@@ -17,3 +17,5 @@
 
 - name: Install plugins
   shell: vim -c PluginInstall -c qa
+  async: 45
+  poll: 5

@@ -3,6 +3,7 @@
 **Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
 
 - [initVM](#initvm)
+  - [Todo](#todo)
   - [Usage](#usage)
     - [Basic installation](#basic-installation)
     - [doctoc](#doctoc)
@@ -13,6 +14,9 @@
 
 # initVM
 Ansible playbooks for VMs initialization
+
+## Todo
+[ ] Timeout the `install vim plugins` task.
 
 ## Usage
 
