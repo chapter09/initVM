@@ -32,7 +32,7 @@ Go to the [release tab](https://github.com/chapter09/initVM/releases), download 
 
 ### doctoc
 
-```ansible-playbook jupyter.yml```
+    ansible-playbook jupyter.yml
 
 ### TensorFlow
 
