@@ -7,8 +7,8 @@
 
 - name: Get installation script 
   get_url: 
-    url:https://raw.githubusercontent.com/firehol/netdata-demo-site/master/install-required-packages.sh 
-    dest: /tmp/kickstart.sh 
+    url: 'https://raw.githubusercontent.com/firehol/netdata-demo-site/master/install-required-packages.sh' 
+    dest: '/tmp/kickstart.sh' 
 
 - name: Install dependencies 
   shell: ./tmp/kickstart.sh /home/{{ user }}/netdata/
