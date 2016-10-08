@@ -12,7 +12,7 @@
     - ipyparallel 
 
 - name: Generate Jupyter configuration
-  shell: jupyter notebook --generate-config
+  shell: jupyter notebook --generate-config -y
 
 - name: Update matplotlib fontList cache
   file: src=/home/{{ user }}/.cache/matplotlib/fontList.cache 
