@@ -11,7 +11,7 @@
     dest: '/tmp/kickstart.sh' 
 
 - name: Install dependencies 
-  shell: ./tmp/kickstart.sh /home/{{ user }}/netdata/
+  shell: bash /tmp/kickstart.sh /home/{{ user }}/netdata/
 
 - name: Install netdata 
   shell: ./netdata-installer.sh --dont-wait chdir=/home/{{ user }}/netdata/
