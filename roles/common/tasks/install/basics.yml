@@ -3,8 +3,8 @@
 # This Playbook will install all basic tools on all machines
 
 - name: Clean up /tmp
-  shell: rm -rf /tmp/*
-  become: yes
+  mount: name=/tmp state=unmounted src=none fstype=none 
+  ignore_errors: yes
 
 - name: Update the apt index
   apt: update_cache=yes cache_valid_time=3600
