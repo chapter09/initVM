@@ -16,5 +16,8 @@
   copy: src=/home/{{ user }}/dotfiles/.vim dest=/home/{{ user }}/.vim
 
 - name: Install plugins
-  shell: vim -c PluginInstall -c qa
+  expect: 
+    command: vim -c PluginInstall -c qa
+    responses:
+      press_enter: /bin/bash -c "echo"
   ignore_errors: yes
