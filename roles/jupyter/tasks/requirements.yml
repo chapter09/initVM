@@ -39,5 +39,6 @@
     - ipythonblocks
     - plotly
     - dask
+    - cython
     - blaze
     - odo

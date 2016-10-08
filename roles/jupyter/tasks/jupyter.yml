@@ -11,6 +11,9 @@
     - ipywidgets
     - ipyparallel 
 
+- name: Generate Jupyter configuration
+  shell: jupyter notebook --generate-config
+
 - name: Update matplotlib fontList cache
   file: src=/home/{{ user }}/.cache/matplotlib/fontList.cache 
         state=absent
