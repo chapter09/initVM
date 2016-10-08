@@ -5,9 +5,6 @@
 - name: git clone netdata
   git: repo=https://github.com/firehol/netdata.git depth=1 dest=/home/{{ user }}/netdata
 
-- name: install autoconf
-  apt: name=autoconf state=present
-
 - name: Install netdata 
   shell: curl -Ss 'https://raw.githubusercontent.com/firehol/netdata-demo-site/master/install-required-packages.sh' >/tmp/kickstart.sh && bash /tmp/kickstart.sh netdata
   become: yes
