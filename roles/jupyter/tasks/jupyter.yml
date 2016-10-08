@@ -14,14 +14,14 @@
 - name: Generate Jupyter configuration
   shell: jupyter notebook --generate-config -y
 
-- name: Update matplotlib fontList cache
-  file: src=/home/{{ user }}/.cache/matplotlib/fontList.cache 
-        state=absent
-  ignore_errors: yes
+#- name: Update matplotlib fontList cache
+#  file: src=/home/{{ user }}/.cache/matplotlib/fontList.cache 
+#        state=absent
+#  ignore_errors: yes
 
-- name: Config matplotlib
-  template: src=matplotlibrc.j2 dest=/home/{{ user }}/.config/matplotlib/matplotlibrc
-  ignore_errors: yes
+#- name: Config matplotlib
+#  template: src=matplotlibrc.j2 dest=/home/{{ user }}/.config/matplotlib/matplotlibrc
+#  ignore_errors: yes
 
 - name: Config jupyter server
   template: src=jupyter_notebook_config.j2 dest=/home/{{ user }}/.jupyter/jupyter_notebook_config.py
