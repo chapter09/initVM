@@ -9,5 +9,5 @@ git clone https://github.com/chapter09/initVM.git
 
 cd initVM
 
-cp hosts.template > hosts
-cp group_vars/all.template > group_vars/all
+cp hosts.template hosts
+cp group_vars/all.template group_vars/all
