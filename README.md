@@ -20,7 +20,7 @@ Ansible playbooks for VMs initialization
 
 ## Usage
 
-Go to the [release tab](https://github.com/chapter09/initVM/releases), download the package and uncompress.
+  sh -c "$(wget https://raw.githubusercontent.com/chapter09/initVM/master/init.sh -O -)"
 
 ### Basic installation
 1. Run `init.sh`
