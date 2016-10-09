@@ -20,7 +20,7 @@ Ansible playbooks for VMs initialization
 
 ## Usage
 
-  sh -c "$(wget https://raw.githubusercontent.com/chapter09/initVM/master/init.sh -O -)"
+    sh -c "$(wget https://raw.githubusercontent.com/chapter09/initVM/master/init.sh -O -)"
 
 ### Basic installation
 1. Run `init.sh`
