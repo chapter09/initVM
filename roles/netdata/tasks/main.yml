@@ -12,7 +12,24 @@
 
 - name: Install dependencies 
   shell: echo 'Y' | bash /tmp/kickstart.sh netdata --dont-wait
+  become: yes
 
 - name: Install netdata 
   shell: ./netdata-installer.sh --dont-wait chdir=/home/{{ user }}/netdata/
+  become: yes
+
+- name: Register as a service
+  shell: cp /home/{{ user }}/netdata/system/netdata-lsb /etc/init.d/netdata
+  become: yes
+
+- name: Makes it executable
+  shell: chmod +x /etc/init.d/netdata
+  become: yes
+
+- name: Enable the service
+  shell: update-rc.d netdata defaults
+  become: yes
+
+- name: Run netdata
+  shell: name=netdata state=started
   become: yes
