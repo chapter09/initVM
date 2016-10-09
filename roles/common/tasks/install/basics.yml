@@ -4,6 +4,7 @@
 
 - name: Clean up /tmp
   mount: name=/tmp state=unmounted src=none fstype=none 
+  become: yes
   ignore_errors: yes
 
 - name: Update the apt index
