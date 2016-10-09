@@ -4,3 +4,4 @@
 user: ubuntu 
 jupyter_pw: sha1:97ba05461e9d:a3ec24afd74e0402067975375014b9f727d84a6e
 pub_keys: https://github.com/chapter09.keys
+timezone: ETC

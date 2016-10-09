@@ -29,5 +29,9 @@
     - tree
     - vim
 
+- name: Setup time zone
+  shell: timedatectl set-timezone {{ timezone }}
+  become: yes
+
 - name: Create the Downloads directory for all machines
   file: path=/home/ubuntu/Downloads state=directory mode=0755 owner=ubuntu
