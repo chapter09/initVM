@@ -30,7 +30,7 @@ Ansible playbooks for VMs initialization
 
 ### doctoc
 
-### doctoc
+### Jupyter 
 
     ansible-playbook jupyter.yml
 
