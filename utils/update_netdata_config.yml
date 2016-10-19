@@ -1,1 +1,13 @@
+# vim:ft=ansible:
+# ---
+# This Playbook will update configs of netdata 
 
+- hosts: all
+  remote_user: ubuntu 
+  tasks:
+    - name: update Netdata history period to 5hr
+      lineinfile: 
+        dest: /etc/netdata/netdata.conf 
+        insertafter: "# hostname" 
+        line: "         history = 10800" 
+      become: yes
