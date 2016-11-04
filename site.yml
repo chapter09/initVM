@@ -3,7 +3,7 @@
 # This Playbook will deploy basic toolchains on the node/cluster
 
 - hosts: all
-  remote_user: {{ user }} 
+  remote_user: "{{ user }}"
   roles:
     - role: common
     - role: doctoc
