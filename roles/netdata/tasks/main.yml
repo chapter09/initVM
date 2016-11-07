@@ -30,6 +30,10 @@
   shell: update-rc.d netdata defaults
   become: yes
 
+- name: Update Netdata configuration
+  template: src=netdata.j2 dest=/etc/netdata/netdata.conf
+  become: yes
+
 - name: Run netdata
   shell: name=netdata state=started
   become: yes

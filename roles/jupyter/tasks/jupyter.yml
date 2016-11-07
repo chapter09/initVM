@@ -14,6 +14,9 @@
 - name: Generate Jupyter configuration
   shell: jupyter notebook --generate-config -y
 
+- name: Generate IPython configuration 
+  shell: ipython profile create
+
 #- name: Update matplotlib fontList cache
 #  file: src=/home/{{ user }}/.cache/matplotlib/fontList.cache 
 #        state=absent
@@ -27,3 +30,6 @@
   template: src=jupyter_notebook_config.j2 dest=/home/{{ user }}/.jupyter/jupyter_notebook_config.py
   ignore_errors: yes
 
+- name: Config IPython matplotlib
+  template: src=ipython_kernel_config.j2 dest=/home/{{ user }}/.ipython/profile_default/ipython_kernel_config.py
+  ignore_errors: yes
