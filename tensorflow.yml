@@ -1,0 +1,9 @@
+# vim:ft=ansible:
+---
+# This Playbook will install jupyter notebook
+
+- hosts: all
+  remote_user: ubuntu 
+  roles:
+    - role: tensorflow 
+
