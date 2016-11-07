@@ -3,7 +3,7 @@
 # This Playbook will install doctoc, a tool generate markdown TOC 
 
 - hosts: all
-  remote_user: ubuntu 
+  remote_user: "{{ user }}" 
   roles:
     - role: doctoc
 
