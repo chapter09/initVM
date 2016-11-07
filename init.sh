@@ -1,4 +1,5 @@
 #!/bin/sh
+sudo umount /tmp
 sudo apt-get install -y software-properties-common
 sudo apt-add-repository -y ppa:ansible/ansible
 sudo apt-get update
