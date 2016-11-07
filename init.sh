@@ -6,6 +6,10 @@ sudo apt-get update
 sudo apt-get install -y ansible
 sudo apt-get install -y git
 
+# create key-pair
+ssh-keygen -P "" -t rsa -f ~/.ssh/id_rsa
+cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
+
 git clone https://github.com/chapter09/initVM.git
 
 cd initVM
