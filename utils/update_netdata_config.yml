@@ -8,6 +8,8 @@
     - name: update Netdata history period to 5hr
       lineinfile: 
         dest: /etc/netdata/netdata.conf 
-        insertafter: "# hostname" 
-        line: "         history = 10800" 
+        regexp: "^.*hostname = hao" 
+        insertafter: "^.*hostname = hao" 
+        line: "        history = 18000" 
+        state: present
       become: yes
