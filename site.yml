@@ -6,4 +6,5 @@
   remote_user: "{{ user }}"
   roles:
     - role: common
+    - role: redis
     - role: doctoc
