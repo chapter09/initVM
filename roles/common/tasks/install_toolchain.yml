@@ -11,6 +11,9 @@
 - name: Install Java 8 
   include: './install/java.yml'
 
+- name: Install SBT
+  include: './install/sbt.yml'
+
 - name: Install tmux
   include: './install/tmux.yml'
 
