@@ -1,4 +1,5 @@
 #!/usr/bin/python
+# Python2.7
 import os
 import sys
 import subprocess
@@ -44,10 +45,14 @@ for line in host_list_fd.readlines():
 
 host_list_fd.close()
 
-local_addr = socket.gethostbyname(socket.gethostname())
+try:
+    local_addr = socket.gethostbyname(socket.gethostname())
+except socket.error:
+    print "Has not found the local hostname"
+    local_addr = None
 
 for host in host_list:
-    if host.strip() == local_addr.strip():
+    if local_addr and host.strip() == local_addr.strip():
         continue
     cmd = "rsync -arz --exclude logs --exclude \'%s\' %s %s:%s"%(args.arguments, 
             args.source, host, args.destination)
