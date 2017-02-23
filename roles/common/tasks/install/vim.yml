@@ -19,9 +19,13 @@
   pip: name=pexpect state=present
   become: yes
 
+#- name: Install plugins
+#  expect: 
+#    command: vim -E -s -c "source ~/.vimrc" -c PluginInstall -c qa 
+#    responses:
+#      press_enter: /bin/bash -c "echo"
+#  ignore_errors: yes
+
 - name: Install plugins
-  expect: 
-    command: vim -c PluginInstall -c qa
-    responses:
-      press_enter: /bin/bash -c "echo"
+  shell: vim -E -s -c "source ~/.vimrc" -c PluginInstall -c qa 
   ignore_errors: yes
