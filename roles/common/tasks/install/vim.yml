@@ -13,18 +13,10 @@
   copy: src=/home/{{ user }}/dotfiles/.vimrc dest=/home/{{ user }}/
 
 - name: Update .vim
-  copy: src=/home/{{ user }}/dotfiles/.vim dest=/home/{{ user }}/.vim
+  copy: src=/home/{{ user }}/dotfiles/.vim/after dest=/home/{{ user }}/.vim/after
 
-- name: Install Python pexpect
-  pip: name=pexpect state=present
-  become: yes
-
-#- name: Install plugins
-#  expect: 
-#    command: vim -E -s -c "source ~/.vimrc" -c PluginInstall -c qa 
-#    responses:
-#      press_enter: /bin/bash -c "echo"
-#  ignore_errors: yes
+- name: Update .vim
+  copy: src=/home/{{ user }}/dotfiles/.vim/bundle/ dest=/home/{{ user }}/.vim/bundle/
 
 - name: Install plugins
   shell: vim -E -s -c "source ~/.vimrc" -c PluginInstall -c qa 
