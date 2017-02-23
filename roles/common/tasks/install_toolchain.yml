@@ -20,8 +20,9 @@
 - name: Install zsh
   include: './install/zsh.yml'
 
+- name: Install python
+  include: './install/python.yml'
+
 - name: Install vim
   include: './install/vim.yml'
 
-- name: Install python
-  include: './install/python.yml'

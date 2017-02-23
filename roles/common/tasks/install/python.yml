@@ -1,6 +1,6 @@
 # vim:ft=ansible:
 ---
-# This Playbook install the latest tmux
+# This Playbook install the latest Python
 
 - name: Install python kits
   apt: name={{ item }} state=latest update_cache=yes
@@ -8,3 +8,7 @@
     - python-pip
     - python-dev
   become: yes 
+
+- name: Upgrade pip
+  pip: name=pip extra_args=--upgrade
+  become: yes

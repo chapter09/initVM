@@ -15,6 +15,10 @@
 - name: Update .vim
   copy: src=/home/{{ user }}/dotfiles/.vim dest=/home/{{ user }}/.vim
 
+- name: Install Python pexpect
+  pip: name=pexpect state=present
+  become: yes
+
 - name: Install plugins
   expect: 
     command: vim -c PluginInstall -c qa
