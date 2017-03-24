@@ -42,3 +42,7 @@
     - cython
     - blaze
     - odo
+    - pandas
+    - numpy
+    - scipy
+    - matplotlib
