@@ -12,8 +12,8 @@ import socket
 # argv[3] dest file/directory
 
 parser = argparse.ArgumentParser()
-parser.add_argument("-f", "--host", dest="hostfile",
-        help="read host list from file", metavar="FILE")
+parser.add_argument("-f", "--host", dest="host",
+        help="read host ip or read host list from file")
 parser.add_argument("-s", "--src", dest="source",
         help="source file/directory", metavar="SRC")
 parser.add_argument("-d", "--dst", dest="destination",
@@ -23,27 +23,25 @@ parser.add_argument("-x", "--args", dest="arguments",
 
 args = parser.parse_args()
 if len(sys.argv) < 7:
-   #print len(sys.argv)
-   parser.print_help()
-   parser.exit(0)
+    parser.print_help()
+    parser.exit(0)
 
 host_list = []
+if os.path.exists(args.host):
+    with open(args.host) as host_list_fd:  
+        # regex for IPv4
+        pat = r"(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})"
 
-host_list_fd = open(args.hostfile)
+        for line in host_list_fd.readlines():
+            if not line.strip():
+                continue
+            m = re.search(pat, line)
+            if m:
+                print m.group(0).strip()
+                host_list.append(m.group(0).strip())
+else:
+    host_list.append(args.host)
 #print host_list_fd
-
-# regex for IPv4
-pat = r"(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})"
-
-for line in host_list_fd.readlines():
-    if not line.strip():
-        continue
-    m = re.search(pat, line)
-    if m:
-        print m.group(0).strip()
-        host_list.append(m.group(0).strip())
-
-host_list_fd.close()
 
 try:
     local_addr = socket.gethostbyname(socket.gethostname())
