@@ -14,8 +14,10 @@ import socket
 parser = argparse.ArgumentParser()
 parser.add_argument("-f", "--host", dest="host",
         help="read host ip or read host list from file")
-parser.add_argument("-s", "--src", dest="source",
-        help="source file/directory", metavar="SRC")
+parser.add_argument("-s", "--src-file", 
+        help="source file/directory", default=None, metavar="SRC FILE")
+parser.add_argument("-S", "--src-list", 
+        help="source list file", default=None, metavar="SRC LIST")
 parser.add_argument("-d", "--dst", dest="destination",
         help="destination file/directory", metavar="DST")
 parser.add_argument("-x", "--args", dest="arguments",
@@ -25,6 +27,8 @@ args = parser.parse_args()
 if len(sys.argv) < 7:
     parser.print_help()
     parser.exit(0)
+
+#### Build up dst host list ####
 
 host_list = []
 if os.path.exists(args.host):
@@ -37,25 +41,45 @@ if os.path.exists(args.host):
                 continue
             m = re.search(pat, line)
             if m:
-                print m.group(0).strip()
+                print(m.group(0).strip())
                 host_list.append(m.group(0).strip())
 else:
     host_list.append(args.host)
 #print host_list_fd
 
+#### Build up src file list ####
+
+src_list = []
+if args.src_list and os.path.exists(args.src_list):
+    with open(args.src_list) as src_list_fd:  
+        for line in src_list_fd.readlines():
+            src_list.append(line.strip())
+elif args.src_file and os.path.exists(args.src_file):
+    src_list.append(args.src_file) 
+else:
+    print("ERROR: SRC does not exist")
+    parser.print_help()
+    exit(0)
+
+#### Skip the local host ####
+
 try:
-    local_addr = socket.gethostbyname(socket.gethostname())
+    local_hostname = socket.gethostname()
+    local_addr = socket.gethostbyname(local_hostname)
 except socket.error:
     print "Has not found the local hostname"
     local_addr = None
+    local_hostname = None
 
 for host in host_list:
-    if local_addr and host.strip() == local_addr.strip():
+    if (local_addr and host.strip() == local_addr.strip()) or \
+       (local_hostname and host.strip() == local_hostname.strip()):
         continue
-    cmd = "rsync -arz --exclude logs --exclude \'%s\' %s %s:%s"%(args.arguments, 
-            args.source, host, args.destination)
-    print cmd
+    for src in src_list:
+        cmd = "rsync -arz --exclude logs --exclude \'%s\' %s %s:%s" % (
+            args.arguments, src, host, args.destination)
+    print(cmd)
     p = subprocess.Popen(cmd, shell=True)
     p.wait()
 
-print "DONE"
+print("DONE")
