@@ -71,15 +71,18 @@ except socket.error:
     local_addr = None
     local_hostname = None
 
+proc_list = []
 for host in host_list:
     if (local_addr and host.strip() == local_addr.strip()) or \
        (local_hostname and host.strip() == local_hostname.strip()):
         continue
     for src in src_list:
-        cmd = "rsync -arz --exclude logs --exclude \'%s\' %s %s:%s" % (
+        cmd = "rsync -arzq --exclude logs --exclude \'%s\' %s %s:%s" % (
             args.arguments, src, host, args.destination)
-    print(cmd)
-    p = subprocess.Popen(cmd, shell=True)
+        print(cmd)
+        proc_list.append(subprocess.Popen(cmd, shell=True))
+
+for p in proc_list:
     p.wait()
 
 print("DONE")
