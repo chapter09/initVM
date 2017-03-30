@@ -13,6 +13,6 @@ cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
 git clone https://github.com/chapter09/initVM.git
 
 cd initVM
-
+sudo ln -s $PWD/rsync.py /usr/local/bin/prsync
 cp hosts.template hosts
 cp group_vars/all.template group_vars/all
