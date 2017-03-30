@@ -16,7 +16,7 @@
 Ansible playbooks for VMs initialization
 
 ## Todo
-[ x ] Timeout the `install vim plugins` task.
+- [x] Timeout the `install vim plugins` task.
 
 ## Usage
 
