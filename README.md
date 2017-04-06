@@ -17,6 +17,7 @@ Ansible playbooks for VMs initialization
 
 ## Todo
 - [x] Timeout the `install vim plugins` task.
+- [ ] Add `/etc/hosts` file modification
 
 ## Usage
 
