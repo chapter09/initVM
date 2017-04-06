@@ -1,0 +1,10 @@
+# vim:ft=ansible:
+---
+# This Playbook will install jupyter notebook
+
+- hosts: all
+  remote_user: "{{ user }}" 
+  roles:
+    - role: hdfs
+    - role: hive
+
