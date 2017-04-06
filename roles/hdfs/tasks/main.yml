@@ -1,0 +1,10 @@
+# vim:ft=ansible:
+---
+# This Playbook will config HDFS 
+
+- name: Create folder and assign ownership
+  file: path={{ item }} state=directory owner={{ user }} group={{ user }}
+  with_items:
+    - "{{ hdfs_data_dir }}"
+    - "{{ hdfs_name_dir }}"
+  become: yes
