@@ -6,9 +6,14 @@
   apt: name={{ item }} state=latest update_cache=yes
   with_items:
     - python-pip
+    - python3-pip
     - python-dev
   become: yes 
 
 - name: Upgrade pip
   pip: name=pip extra_args=--upgrade
+  become: yes
+
+- name: Upgrade pip3
+  pip: name=pip extra_args=--upgrade executable=pip3
   become: yes
