@@ -46,3 +46,4 @@
     - numpy
     - scipy
     - matplotlib
+    - qgrid
