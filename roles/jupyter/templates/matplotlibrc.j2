@@ -126,22 +126,22 @@ backend      : %(backend)s
 # The font.size property is the default font size for text, given in pts.
 # 12pt is the standard value.
 #
-#font.family         : sans-serif
-#font.style          : normal
-#font.variant        : normal
-#font.weight         : medium
-#font.stretch        : normal
+font.family         : sans-serif
+font.style          : normal
+font.variant        : normal
+font.weight         : medium
+font.stretch        : normal
 # note that font.size controls default text sizes.  To configure
 # special text sizes tick labels, axes, labels, title, etc, see the rc
 # settings for axes and ticks. Special text sizes can be defined
 # relative to font.size, using the following values: xx-small, x-small,
 # small, medium, large, x-large, xx-large, larger, or smaller
-#font.size           : 12.0
-#font.serif          : Bitstream Vera Serif, New Century Schoolbook, Century Schoolbook L, Utopia, ITC Bookman, Bookman, Nimbus Roman No9 L, Times New Roman, Times, Palatino, Charter, serif
-#font.sans-serif     : Bitstream Vera Sans, Lucida Grande, Verdana, Geneva, Lucid, Arial, Helvetica, Avant Garde, sans-serif
-#font.cursive        : Apple Chancery, Textile, Zapf Chancery, Sand, cursive
-#font.fantasy        : Comic Sans MS, Chicago, Charcoal, Impact, Western, fantasy
-#font.monospace      : Bitstream Vera Sans Mono, Andale Mono, Nimbus Mono L, Courier New, Courier, Fixed, Terminal, monospace
+font.size           : 12.0
+font.serif          : Bitstream Vera Serif, New Century Schoolbook, Century Schoolbook L, Utopia, ITC Bookman, Bookman, Nimbus Roman No9 L, Times New Roman, Times, Palatino, Charter, serif
+font.sans-serif     : Helvetica, Bitstream Vera Sans, Lucida Grande, Verdana, Geneva, Lucid, Arial, Helvetica, Avant Garde, sans-serif
+font.cursive        : Apple Chancery, Textile, Zapf Chancery, Sand, cursive
+font.fantasy        : Comic Sans MS, Chicago, Charcoal, Impact, Western, fantasy
+font.monospace      : Bitstream Vera Sans Mono, Andale Mono, Nimbus Mono L, Courier New, Courier, Fixed, Terminal, monospace
 
 ### TEXT
 # text properties used by text.Text.  See
@@ -308,10 +308,10 @@ backend      : %(backend)s
 ### FIGURE
 # See http://matplotlib.org/api/figure_api.html#matplotlib.figure.Figure
 figure.figsize   : 8, 6    # figure size in inches
-#figure.dpi       : 80      # figure dots per inch
-#figure.facecolor : 0.75    # figure facecolor; 0.75 is scalar gray
-#figure.edgecolor : white   # figure edgecolor
-#figure.autolayout : False  # When True, automatically adjust subplot
+figure.dpi       : 80      # figure dots per inch
+figure.facecolor : 0.75    # figure facecolor; 0.75 is scalar gray
+figure.edgecolor : white   # figure edgecolor
+figure.autolayout : False  # When True, automatically adjust subplot
                             # parameters to make the plot fit the figure
 #figure.max_open_warning : 20  # The maximum number of figures to open through
                                # the pyplot interface before emitting a warning.
@@ -368,14 +368,14 @@ figure.figsize   : 8, 6    # figure size in inches
 # the default savefig params can be different from the display params
 # e.g., you may want a higher resolution, or to make the figure
 # background white
-#savefig.dpi         : 100      # figure dots per inch
-#savefig.facecolor   : white    # figure facecolor when saving
-#savefig.edgecolor   : white    # figure edgecolor when saving
-#savefig.format      : png      # png, ps, pdf, svg
-#savefig.bbox        : standard # 'tight' or 'standard'.
-#savefig.pad_inches  : 0.1      # Padding to be used when bbox is set to 'tight'
-#savefig.jpeg_quality: 95       # when a jpeg is saved, the default quality parameter.
-#savefig.directory   : ~        # default directory in savefig dialog box,
+savefig.dpi         : 100      # figure dots per inch
+savefig.facecolor   : white    # figure facecolor when saving
+savefig.edgecolor   : white    # figure edgecolor when saving
+savefig.format      : png      # png, ps, pdf, svg
+savefig.bbox        : standard # 'tight' or 'standard'.
+savefig.pad_inches  : 0.1      # Padding to be used when bbox is set to 'tight'
+savefig.jpeg_quality: 95       # when a jpeg is saved, the default quality parameter.
+savefig.directory   : ~        # default directory in savefig dialog box,
                                 # leave empty to always use current working directory
 
 # tk backend params
