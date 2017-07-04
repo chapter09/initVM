@@ -29,6 +29,7 @@
     - git
     - tree
     - vim
+    - iperf
 
 - name: Setup time zone
   shell: timedatectl set-timezone {{ timezone }}
