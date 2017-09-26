@@ -37,3 +37,9 @@
 
 - name: Create the Downloads directory for all machines
   file: path=/home/ubuntu/Downloads state=directory mode=0755 owner=ubuntu
+
+- name: Config git email  
+  shell: git config --global user.email {{ git_email }}
+
+- name: Config git email  
+  shell: git config --global user.name {{ git_name }}

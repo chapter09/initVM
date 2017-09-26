@@ -2,5 +2,5 @@
 ---
 # This Playbook will install jupyter notebook
 
-- include: requirements.yml
-- include: jupyter.yml
+- import_tasks: requirements.yml
+- import_tasks: jupyter.yml

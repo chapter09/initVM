@@ -8,11 +8,11 @@
   ignore_errors: yes
 
 - name: Install toolchain
-  include: install_toolchain.yml
+  import_tasks: install_toolchain.yml
   
 - name: SSH configuration
-  include: ssh_config.yml
+  import_tasks: ssh_config.yml
 
 - name: Setup env variables
-  include: setup_env.yml
+  import_tasks: setup_env.yml
 
