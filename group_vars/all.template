@@ -10,3 +10,5 @@ hdfs_data_dir: /mnt/hadoop/data/
 hdfs_name_dir: /mnt/hadoop/name/
 
 hive_dir: /mnt/hive/
+git_email: haowang@ece.utoronto.ca
+git_name: "Hao Wang"
