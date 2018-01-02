@@ -8,3 +8,7 @@
 - name: Setup PATH
   lineinfile: dest=/home/ubuntu/.zshrc line="PATH=$PATH:/usr/lib/jvm/java-8-oracle/jre/bin/"
 
+- name: Setup /etc/hosts
+  become: yes
+  lineinfile: dest=/etc/hosts line="127.0.0.1 {{ ansible_hostname }}"
+
