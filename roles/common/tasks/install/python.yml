@@ -10,6 +10,14 @@
     - python-dev
   become: yes 
 
+- name: Fix potential pip2 and pip3 mixup
+  shell: python3 -m pip install -U --force-reinstall pip
+  become: yes
+
+- name: Fix potential pip2 and pip3 mixup
+  shell: python2 -m pip install -U --force-reinstall pip
+  become: yes
+
 - name: Upgrade pip
   pip: name=pip extra_args=--upgrade
   become: yes
