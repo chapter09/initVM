@@ -12,6 +12,7 @@
   become: yes
 
 - name: Git clone MXNet source code
-  git: repo=https://github.com/apache/incubator-mxnet dest=/home/{{ user }}/
+  git: repo=https://github.com/apache/incubator-mxnet 
+       dest=/home/{{ user }}/incubator-mxnet
        accept_hostkey=yes
        recursive=yes
