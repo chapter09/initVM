@@ -1,0 +1,17 @@
+# vim:ft=ansible:
+---
+# This Playbook will install redis
+
+#- name: Setup TF env
+#  environment:
+#    TF_BINARY_URL: https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-0.10.0rc0-cp27-none-linux_x86_64.whl
+
+- name: Install MXNet from pip
+  pip: name=mxnet state=latest
+  executable: pip2
+  become: yes
+
+- name: Git clone MXNet source code
+  git: repo=https://github.com/apache/incubator-mxnet dest=/home/{{ user }}/
+       accept_hostkey=yes
+       recursive=yes

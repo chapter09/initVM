@@ -1,0 +1,22 @@
+# vim:ft=ansible:
+---
+# This Playbook will install jupyter notebook
+
+- hosts: all
+  gather_facts: false
+  remote_user: "{{ user }}"
+  tasks:
+    - name: Distribute keypaires 
+      copy: 
+        src: "/home/{{ user }}/.ssh/{{ item }}" 
+        dest: "/home/{{ user }}/.ssh/{{ item }}" 
+        mode: 0600
+      with_items:
+        - id_rsa.pub
+        - id_rsa
+
+    - name: Authroized keys
+      authorized_key:
+        user: "{{ user }}"
+        key: "{{ lookup('file', '/home/ubuntu/.ssh/id_rsa.pub') }}"
+        state: present

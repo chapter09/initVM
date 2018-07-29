@@ -6,7 +6,7 @@ sudo apt-get update
 sudo apt-get install -y ansible
 sudo apt-get install -y git
 
-# create key-pair
+# Create key-pair
 ssh-keygen -P "" -t rsa -f ~/.ssh/id_rsa
 cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
 
@@ -16,3 +16,7 @@ cd initVM
 sudo ln -s $PWD/rsync.py /usr/local/bin/prsync
 cp hosts.template hosts
 cp group_vars/all.template group_vars/all
+
+# Start initializing
+git checkout mxnet
+ansible-play site
