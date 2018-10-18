@@ -59,3 +59,6 @@ Ansible playbooks for VMs initialization
     ansible -i hosts all -m shell -a "reboot" -b
       
       
+### Hadoop & Spark Stack
+
+- [] Generate a uniform `/etc/hosts` file
