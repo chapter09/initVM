@@ -55,7 +55,7 @@ Ansible playbooks for VMs initialization
 #### initVM
 
     ansible -i hosts all -m raw -a "sh -c '$(wget https://raw.githubusercontent.com/chapter09/initVM/master/init.sh -O -)'"
-    ansible -i tf-hosts all -m shell -a "cd initVM; ansible-playbook site.yml"
-    ansible -i tf-hosts all -m shell -a "reboot" -b
+    ansible -i hosts all -m shell -a "cd initVM; ansible-playbook site.yml"
+    ansible -i hosts all -m shell -a "reboot" -b
       
       
