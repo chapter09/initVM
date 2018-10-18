@@ -61,4 +61,4 @@ Ansible playbooks for VMs initialization
       
 ### Hadoop & Spark Stack
 
-- [] Generate a uniform `/etc/hosts` file
+- [ ] Generate a uniform `/etc/hosts` file
