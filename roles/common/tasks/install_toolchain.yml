@@ -8,12 +8,6 @@
 - name: Git clone dotfiles 
   import_tasks: './install/dotfiles.yml'
 
-- name: Install Java 8 
-  import_tasks: './install/java.yml'
-
-- name: Install SBT
-  import_tasks: './install/sbt.yml'
-
 - name: Install tmux
   import_tasks: './install/tmux.yml'
 
@@ -26,3 +20,8 @@
 - name: Install vim
   import_tasks: './install/vim.yml'
 
+- name: Install Java 8 
+  import_tasks: './install/java.yml'
+
+- name: Install SBT
+  import_tasks: './install/sbt.yml'
