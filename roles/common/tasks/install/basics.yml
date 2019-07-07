@@ -7,12 +7,12 @@
   become: yes
   ignore_errors: yes
 
-- name: Update the apt index
-  apt: update_cache=yes cache_valid_time=3600
-  become: yes
+#- name: Update the apt index
+#  apt: update_cache=yes cache_valid_time=3600
+#  become: yes
 
 - name: Upgrade all packages
-  apt: upgrade=dist
+  apt: update_cache=yes cache_valid_time=3600 upgrade=dist
   become: yes
 
 - name: build-essential
@@ -20,16 +20,8 @@
   become: true
 
 - name: Install basic tools
-  apt: name={{ item }} update_cache=yes
+  apt: name=['language-pack-en', 'htop', 'exuberant-ctags', 'git', 'tree', 'vim', 'iperf'] update_cache=yes
   become: yes
-  with_items:
-    - language-pack-en
-    - htop
-    - exuberant-ctags
-    - git
-    - tree
-    - vim
-    - iperf
 
 - name: Setup time zone
   shell: timedatectl set-timezone {{ timezone }}
