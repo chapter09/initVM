@@ -3,11 +3,10 @@
 # This Playbook install the latest Python
 
 - name: Install python kits
-  apt: name={{ item }} state=latest update_cache=yes
-  with_items:
-    - python-pip
-    - python3-pip
-    - python-dev
+  apt: 
+    name: ['python-pip', 'python3-pip', 'python-dev']
+    state: latest 
+    update_cache: yes
   become: yes 
 
 - name: Upgrade pip

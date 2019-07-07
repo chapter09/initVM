@@ -1,26 +1,24 @@
 # vim:ft=ansible:
 ---
-# This Playbook will install Java 8 
+# This Playbook will install Java 11 
 
-- name: Install Oracle Java 8 install python-software-properties
+- name: Install Oracle Java 11 install python-software-properties
   apt: name=software-properties-common state=latest
   become: yes
 
 - name: Add Oracle Java Repository
-  apt_repository: repo='ppa:webupd8team/java'
+  apt_repository: repo='ppa:linuxuprising/java'
   become: yes
 
-- name: Accept Java 8 License
-  debconf: name='oracle-java8-installer' 
+- name: Accept Java 11 License
+  debconf: name='oracle-java11-installer-local' 
            question='shared/accepted-oracle-license-v1-1' 
            value='true' 
            vtype='select'
   become: yes
 
-- name: Install Oracle Java 8
-  apt: name={{item}} state=latest
-  with_items:
-    - oracle-java8-installer
-    - ca-certificates
-    - oracle-java8-set-default
+- name: Install Oracle Java 11
+  apt:
+    name: ['oracle-java11-installer-local', 'ca-certificates', 'oracle-java11-set-default-local'] 
+    state: latest
   become: yes

@@ -20,7 +20,9 @@
   become: true
 
 - name: Install basic tools
-  apt: name=['language-pack-en', 'htop', 'exuberant-ctags', 'git', 'tree', 'vim', 'iperf'] update_cache=yes
+  apt:
+    name: ['language-pack-en', 'htop', 'exuberant-ctags', 'git', 'tree', 'vim', 'iperf'] 
+    update_cache: yes
   become: yes
 
 - name: Setup time zone
