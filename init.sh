@@ -3,8 +3,7 @@ sudo umount /tmp
 sudo apt-get install -y software-properties-common
 sudo apt-add-repository -y ppa:ansible/ansible
 sudo apt-get update
-sudo apt-get install -y ansible
-sudo apt-get install -y git
+sudo apt-get install -y ansible python-apt git
 
 # create key-pair
 ssh-keygen -P "" -t rsa -f ~/.ssh/id_rsa
