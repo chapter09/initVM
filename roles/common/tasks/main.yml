@@ -7,6 +7,15 @@
   become: yes
   ignore_errors: yes
 
+- name: Setup /mnt
+  file:
+    path: '/mnt'
+    owner: "{{ user }}"
+    group: "{{ user }}"
+    recurse: yes
+  become: yes
+  ignore_errors: yes
+
 - name: Install toolchain
   import_tasks: install_toolchain.yml
   
