@@ -22,3 +22,9 @@
     name: ['oracle-java11-installer-local', 'ca-certificates', 'oracle-java11-set-default-local'] 
     state: latest
   become: yes
+
+- name: Setup JAVA_HOME
+  lineinfile: dest=/home/ubuntu/.zshrc line="export JAVA_HOME=/usr/lib/jvm/java-11-oracle/"
+
+- name: Setup PATH
+  lineinfile: dest=/home/ubuntu/.zshrc line="PATH=$PATH:/usr/lib/jvm/java-11-oracle/jre/bin/"

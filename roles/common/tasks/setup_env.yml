@@ -2,12 +2,6 @@
 ---
 # This Playbook will setup all env variables and add them to .zshrc
 
-- name: Setup JAVA_HOME
-  lineinfile: dest=/home/ubuntu/.zshrc line="export JAVA_HOME=/usr/lib/jvm/java-8-oracle/"
-
-- name: Setup PATH
-  lineinfile: dest=/home/ubuntu/.zshrc line="PATH=$PATH:/usr/lib/jvm/java-8-oracle/jre/bin/"
-
 - name: Setup /etc/hosts
   become: yes
   lineinfile: dest=/etc/hosts line="127.0.0.1 {{ ansible_hostname }}"
