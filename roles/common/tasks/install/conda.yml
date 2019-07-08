@@ -1,0 +1,39 @@
+# vim:ft=ansible:
+---
+# This Playbook install the latest miniconda
+
+- name: check if already installed
+  stat: path={{ miniconda_home }}/bin/conda
+  register: bin_conda
+  changed_when: bin_conda.stat.exists == False
+
+- name: download miniconda installer
+  sudo: no
+  get_url:
+    url={{ miniconda_url }}
+    dest=/tmp/miniconda.sh
+    mode=0755
+  register: miniconda_downloaded
+  when: bin_conda.stat.exists == False
+
+- name: install miniconda
+  sudo: no
+  shell: "/tmp/miniconda.sh -b -p {{ miniconda_home }} creates={{ miniconda_home }} executable=/bin/bash"
+  register: miniconda_installed
+  when: miniconda_downloaded is success
+
+- name: add miniconda to the PATH
+  sudo: no
+  lineinfile:
+    dest: "{{ miniconda_rcfile }}"
+    line: export PATH={{ miniconda_home }}/bin:$PATH
+    state: present
+
+- name: add env directory
+  file:
+    path: /mnt/.conda/envs/
+    state: directory
+
+- name: update condarc
+  copy: src=/home/{{ user }}/dotfiles/.condarc dest=/home/{{ user }}/
+
