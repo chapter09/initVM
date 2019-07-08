@@ -4,24 +4,24 @@
 
 - name: Install Oracle Java 11 install python-software-properties
   apt: name=software-properties-common state=latest
-  become: yes
+  sudo: yes
 
 - name: Add Oracle Java Repository
   apt_repository: repo='ppa:linuxuprising/java'
-  become: yes
+  sudo: yes
 
 - name: Accept Java 11 License
   debconf: name='oracle-java11-installer-local' 
            question='shared/accepted-oracle-license-v1-1' 
            value='true' 
            vtype='select'
-  become: yes
+  sudo: yes
 
 - name: Install Oracle Java 11
   apt:
     name: ['oracle-java11-installer-local', 'ca-certificates', 'oracle-java11-set-default-local'] 
     state: latest
-  become: yes
+  sudo: yes
 
 - name: Setup JAVA_HOME
   lineinfile: dest=/home/ubuntu/.zshrc line="export JAVA_HOME=/usr/lib/jvm/java-11-oracle/"
