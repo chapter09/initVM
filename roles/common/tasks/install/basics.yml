@@ -12,7 +12,7 @@
 #  sudo: yes
 
 - name: Upgrade all packages
-  apt: update_cache=yes cache_valid_time=3600 upgrade=dist
+  apt: update_cache=yes cache_valid_time=3600 upgrade=yes
   sudo: yes
 
 - name: build-essential

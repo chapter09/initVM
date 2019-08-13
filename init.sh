@@ -4,6 +4,7 @@ sudo apt-get install -y software-properties-common
 sudo apt-add-repository -y ppa:ansible/ansible
 sudo apt-get update
 sudo apt-get install -y ansible python-apt git
+sudo apt-get install -y aptitude 
 
 # create key-pair
 ssh-keygen -P "" -t rsa -f ~/.ssh/id_rsa
