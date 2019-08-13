@@ -4,14 +4,14 @@
 
 - name: Add SBT source
   shell: echo "deb https://dl.bintray.com/sbt/debian /" | sudo tee -a /etc/apt/sources.list.d/sbt.list
-  become: yes
+  sudo: yes
 
 - name: Add SBT repo key 
   apt_key:
     id: 642AC823
     keyserver: hkp://keyserver.ubuntu.com:80
-  become: yes
+  sudo: yes
 
 - name: Install SBT 
   apt: name=sbt state=latest update_cache=yes
-  become: yes
+  sudo: yes

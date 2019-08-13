@@ -3,5 +3,5 @@
 
 - name: Create folder and assign ownership
   file: path={{ hive_dir }} state=directory owner={{ user }} group={{ user }}
-  become: yes
+  sudo: yes
 

@@ -4,7 +4,7 @@
 
 - name: Install zsh
   apt: name=zsh state=latest
-  become: yes 
+  sudo: yes 
 
 - name: Clone oh-my-zsh repo
   git: repo=https://github.com/robbyrussell/oh-my-zsh.git dest=/home/{{ user }}/.oh-my-zsh
@@ -14,5 +14,5 @@
 
 - name: Set zsh as default shell
   user: name={{ user }} shell=/bin/zsh
-  become: yes
+  sudo: yes
 

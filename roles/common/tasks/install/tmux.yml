@@ -4,11 +4,11 @@
 
 - name: Add latest tmux repo
   apt_repository: repo='ppa:pi-rho/dev'
-  become: yes 
+  sudo: yes 
   
 - name: Install tmux
   apt: name=tmux state=latest
-  become: yes 
+  sudo: yes 
 
 - name: Update config
   copy: src=/home/ubuntu/dotfiles/.tmux.conf dest=/home/ubuntu/

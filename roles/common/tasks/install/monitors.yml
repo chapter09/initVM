@@ -4,7 +4,7 @@
 
 - name: Install iostate
   apt: name=sysstat state=latest
-  become: yes
+  sudo: yes
 
 - name: Create a directory for JvmTop
   file: path=/home/ubuntu/jvmtop state=directory mode=0755 owner=ubuntu
@@ -27,14 +27,14 @@
     - build-essential
     - libncurses5-dev
     - libpcap-dev
-  become: yes
+  sudo: yes
 
 - name: Git clone nethogs source code
   git: repo=https://github.com/raboof/nethogs dest=/home/ubuntu/Downloads/nethogs
 
 - name: Compile nethogs
   make: chdir=/home/ubuntu/Downloads/nethogs target=install
-  become: yes
+  sudo: yes
 
 - name: Download iftop
   get_url: url=http://www.ex-parrot.com/pdw/iftop/download/iftop-1.0pre4.tar.gz
@@ -50,4 +50,4 @@
 
 - name: Build iftop
   make: chdir=/home/ubuntu/Downloads/iftop-1.0pre4 target=install
-  become: yes
+  sudo: yes

@@ -7,4 +7,4 @@
   with_items:
     - "{{ hdfs_data_dir }}"
     - "{{ hdfs_name_dir }}"
-  become: yes
+  sudo: yes

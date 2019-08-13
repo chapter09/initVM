@@ -4,7 +4,7 @@
 
 - name: Install jupyter by pip
   pip: name={{ item }} state=present
-  become: yes
+  sudo: yes
   with_items:
     - jupyter
     - notebook

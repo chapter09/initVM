@@ -7,7 +7,7 @@
 
 - name: Install basic tools
   apt: name={{ item }} update_cache=yes
-  become: yes
+  sudo: yes
   with_items:
     - uuid-dev
     - zlib1g-dev
@@ -20,28 +20,28 @@
 
 - name: Install dependencies 
   shell: echo 'Y' | bash /tmp/kickstart.sh netdata --dont-wait
-  become: yes
+  sudo: yes
 
 - name: Install netdata 
   shell: ./netdata-installer.sh --dont-wait chdir=/home/{{ user }}/netdata/
-  become: yes
+  sudo: yes
 
 - name: Register as a service
   shell: cp /home/{{ user }}/netdata/system/netdata-lsb /etc/init.d/netdata
-  become: yes
+  sudo: yes
 
 - name: Makes it executable
   shell: chmod +x /etc/init.d/netdata
-  become: yes
+  sudo: yes
 
 - name: Enable the service
   shell: update-rc.d netdata defaults
-  become: yes
+  sudo: yes
 
 - name: Update Netdata configuration
   template: src=netdata.j2 dest=/etc/netdata/netdata.conf
-  become: yes
+  sudo: yes
 
 - name: Run netdata
   shell: name=netdata state=started
-  become: yes
+  sudo: yes

@@ -4,7 +4,7 @@
 
 - name: Install python data science dependencies
   apt: name={{ item }}
-  become: yes
+  sudo: yes
   with_items:
     - python-numpy
     - python-scipy
@@ -27,7 +27,7 @@
 
 - name: Install dependencies by pip
   pip: name={{ item }} state=present
-  become: yes
+  sudo: yes
   with_items:
     - scikit-learn
     - matplotlib
