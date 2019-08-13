@@ -20,8 +20,8 @@
 - name: Install vim
   import_tasks: './install/vim.yml'
 
-- name: Install Java 11 
-  import_tasks: './install/java.yml'
+#- name: Install Java 11 
+#  import_tasks: './install/java.yml'
 
 - name: Install SBT
   import_tasks: './install/sbt.yml'
