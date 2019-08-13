@@ -23,8 +23,8 @@
 #- name: Install Java 11 
 #  import_tasks: './install/java.yml'
 
-- name: Install SBT
-  import_tasks: './install/sbt.yml'
+#- name: Install SBT
+#  import_tasks: './install/sbt.yml'
 
 - name: Install Conda
   import_tasks: './install/conda.yml'
