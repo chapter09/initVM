@@ -18,7 +18,7 @@ Ansible playbooks for VMs initialization
 ## Todo
 - [x] Timeout the `install vim plugins` task.
 - [ ] Add `/etc/hosts` file modification
-- [ ] Add upgrade to `pip` and `pip3` 
+- [x] Add upgrade to `pip` and `pip3` 
 
 ## Usage
 
