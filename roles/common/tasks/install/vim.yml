@@ -4,7 +4,7 @@
 
 - name: Install tmux
   apt: name=vim state=latest
-  sudo: yes 
+  become: yes 
 
 - name: Install vim vundle 
   git: repo=https://github.com/VundleVim/Vundle.vim.git dest=/home/{{ user }}/.vim/bundle/Vundle.vim

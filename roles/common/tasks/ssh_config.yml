@@ -4,7 +4,7 @@
 
 - name: Configure ssh_config
   lineinfile: dest=/etc/ssh/ssh_config line='    StrictHostKeyChecking no\n    UserKnownHostsFile=/dev/null'
-  sudo: yes
+  become: yes
 
 #- name: Generate key
 #  shell: ssh-keygen -f /home/{{ user }}/.ssh/id_rsa_local -t rsa -N ''

@@ -3,6 +3,6 @@
 # This Playbook will setup all env variables and add them to .zshrc
 
 - name: Setup /etc/hosts
-  sudo: yes
+  become: yes
   lineinfile: dest=/etc/hosts line="127.0.0.1 {{ ansible_hostname }}"
 

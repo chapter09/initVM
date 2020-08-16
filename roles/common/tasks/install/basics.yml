@@ -4,7 +4,6 @@
 
 - name: Clean up /tmp
   mount: name=/tmp state=unmounted src=none fstype=none 
-  sudo: yes
   ignore_errors: yes
 
 #- name: Update the apt index
@@ -13,21 +12,21 @@
 
 - name: Upgrade all packages
   apt: update_cache=yes cache_valid_time=3600 upgrade=yes
-  sudo: yes
+  become: yes
 
 - name: build-essential
   apt: pkg=build-essential state=present update_cache=yes cache_valid_time=3600
-  sudo: true
+  become: yes
 
 - name: Install basic tools
   apt:
     name: ['language-pack-en', 'htop', 'exuberant-ctags', 'git', 'tree', 'vim', 'iperf'] 
     update_cache: yes
-  sudo: yes
+  become: yes
 
 - name: Setup time zone
   shell: timedatectl set-timezone {{ timezone }}
-  sudo: yes
+  become: yes
 
 - name: Create the Downloads directory for all machines
   file: path=/home/ubuntu/Downloads state=directory mode=0755 owner=ubuntu

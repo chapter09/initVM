@@ -4,7 +4,6 @@
 
 - name: Clean up /tmp
   mount: name=/tmp state=unmounted src=none fstype=none
-  sudo: yes
   ignore_errors: yes
 
 - name: Setup /mnt
@@ -13,7 +12,6 @@
     owner: "{{ user }}"
     group: "{{ user }}"
     recurse: yes
-  sudo: yes
   ignore_errors: yes
 
 - name: Install toolchain
